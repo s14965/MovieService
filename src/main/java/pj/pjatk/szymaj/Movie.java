@@ -4,7 +4,7 @@ import pj.pjatk.szymaj.Category;
 
 public class Movie {
 
-    long id;
+    long id = 0;
     String name;
     Category category;
 
@@ -14,9 +14,16 @@ public class Movie {
         category = c;
     }
 
+    public Movie(String n, Category c){
+        name = n;
+        category = c;
+    }
 
     public long getId() {
         return id;
+    }
+    public void setId(long i){
+        id = i;
     }
 
     public String getName() {

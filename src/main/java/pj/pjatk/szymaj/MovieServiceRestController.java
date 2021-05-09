@@ -2,41 +2,41 @@ package pj.pjatk.szymaj;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.*;
-import pj.pjatk.szymaj.Category;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/movies")
-public class MovieServiceRestController<> {
+public class MovieServiceRestController {
 
-
-    Movie batman = new Movie(1,"Batman", Category.Action);
-    Movie nicsmiesznego = new Movie(2,"Nic Smiesznego", Category.Comedy);
-    Movie Shrek = new Movie(2,"Shrek", Category.etc);
-    private Movie[] movieList = {batman, nicsmiesznego, Shrek};
-
+    MovieList movieList = MovieList.getInstance();
 
     @GetMapping("")
-    public ResponseEntity getMovieList() {
-        return ResponseEntity.ok(movieList);
+    public ResponseEntity<List<Movie>> getMovieList() {
+        return ResponseEntity.ok(movieList.getList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getMovie(@PathVariable Object id) {
-        return ResponseEntity.ok(id);
-    }
-/*
-    @PostMapping("/token")
-    public ResponseEntity<Object> postRB(@RequestBody Object t) {
-        if(t == null) {
-            return ResponseEntity.ok("null");
+    public ResponseEntity<Movie> getMovie(@PathVariable long id) {
+        Movie movie = movieList.getMovie(id);
+        if (movie != null) {
+            return ResponseEntity.ok(movie);
         }
-        else{
-            return ResponseEntity.ok(t);
-        }
+        return ResponseEntity.notFound().build();
     }
 
+    //Nie dziala
+    @PostMapping("")
+    public ResponseEntity<Movie> postMovie(@RequestBody Movie movie) {
+        if(movie == null || movie.getId() > 0) {
+            return ResponseEntity.badRequest().build();
+        }
+        else {
+            movieList.addMovie(movie);
+            return ResponseEntity.ok(movie);
+        }
+    }
+/*
     @PutMapping("/put/{pathVariable}")
     public ResponseEntity<Object> putPV(@PathVariable Object pathVariable) {
         return ResponseEntity.ok(pathVariable);
