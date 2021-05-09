@@ -10,8 +10,12 @@ import pj.pjatk.szymaj.Category;
 @RequestMapping("/movies")
 public class MovieServiceRestController<> {
 
-    private Movie[] movieList;
-    Movie movieToAdd = new Movie(1,"Batman", Category.Action);
+
+    Movie batman = new Movie(1,"Batman", Category.Action);
+    Movie nicsmiesznego = new Movie(2,"Nic Smiesznego", Category.Comedy);
+    Movie Shrek = new Movie(2,"Shrek", Category.etc);
+    private Movie[] movieList = {batman, nicsmiesznego, Shrek};
+
 
     @GetMapping("")
     public ResponseEntity getMovieList() {
