@@ -12,7 +12,6 @@ public class MovieServiceRestController<> {
 
     private Movie[] movieList;
     Movie movieToAdd = new Movie(1,"Batman", Category.Action);
-    movieList[0] = movieToAdd;
 
     @GetMapping("")
     public ResponseEntity getMovieList() {
@@ -23,7 +22,7 @@ public class MovieServiceRestController<> {
     public ResponseEntity<Object> getMovie(@PathVariable Object id) {
         return ResponseEntity.ok(id);
     }
-
+/*
     @PostMapping("/token")
     public ResponseEntity<Object> postRB(@RequestBody Object t) {
         if(t == null) {
@@ -43,5 +42,5 @@ public class MovieServiceRestController<> {
     public ResponseEntity<Object> deletePV(@PathVariable Object pathVariable) {
         return ResponseEntity.ok(null);
     }
-
+*/
 }
