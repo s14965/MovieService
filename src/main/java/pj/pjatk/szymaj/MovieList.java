@@ -12,7 +12,6 @@ public final class MovieList {
         movieList.add(new Movie(2, "Nic Smiesznego", Category.Comedy));
         movieList.add(new Movie(3, "Shrek", Category.etc));
     }
-
     public static MovieList getInstance(){
         if (instance == null) {
             instance = new MovieList();
@@ -23,17 +22,13 @@ public final class MovieList {
     public List<Movie> getList() {
         return movieList;
     }
-
     public void addMovie(Movie m){
-        m.setId(movieList.size());
+        m.setId(movieList.size()+1);
         movieList.add(m);
     }
-
     public void deleteMovie(long id){
-        Movie movie = getMovie(id);
-        movieList.remove(movie);
+        movieList.remove(getMovie(id));
     }
-
     public Movie getMovie(long id){
         Movie movie = null;
         for(Movie m: movieList){
@@ -43,5 +38,10 @@ public final class MovieList {
             }
         }
         return movie;
+    }
+
+    public void updateMovie(long id, Movie movie) {
+        getMovie(id).setName(movie.getName());
+        getMovie(id).setCategory(movie.getCategory());
     }
 }

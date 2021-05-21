@@ -2,7 +2,6 @@ package pj.pjatk.szymaj;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,15 +35,17 @@ public class MovieServiceRestController {
             return ResponseEntity.ok(movie);
         }
     }
-/*
-    @PutMapping("/put/{pathVariable}")
-    public ResponseEntity<Object> putPV(@PathVariable Object pathVariable) {
-        return ResponseEntity.ok(pathVariable);
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Movie> updateMovie(@PathVariable long id, @RequestBody Movie movie) {
+        movieList.updateMovie(id, movie);
+        return ResponseEntity.ok(movieList.getMovie(id));
     }
 
-    @DeleteMapping("/delete/{pathVariable}")
-    public ResponseEntity<Object> deletePV(@PathVariable Object pathVariable) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMovie(@PathVariable long id) {
+        movieList.deleteMovie(id);
         return ResponseEntity.ok(null);
     }
-*/
+
 }
