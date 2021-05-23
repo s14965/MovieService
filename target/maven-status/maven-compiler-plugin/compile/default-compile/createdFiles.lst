@@ -1,3 +1,5 @@
-pj/pjatk/szymaj/MovieServiceApplication.class
-pj/pjatk/szymaj/Movie$Category.class
-pj/pjatk/szymaj/Movie.class
+pj\pjatk\szymaj\Movie.class
+pj\pjatk\szymaj\MovieList.class
+pj\pjatk\szymaj\MovieServiceRestController.class
+pj\pjatk\szymaj\MovieServiceApplication.class
+pj\pjatk\szymaj\Category.class
