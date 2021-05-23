@@ -19,7 +19,9 @@ public class MovieServiceRestController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Movie>> getMovieList() { return ResponseEntity.ok(movieService.getList());}
+    public ResponseEntity<List<Movie>> getMovieList() {
+        return ResponseEntity.ok(movieService.getList());
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Movie> getMovie(@PathVariable Long id) {

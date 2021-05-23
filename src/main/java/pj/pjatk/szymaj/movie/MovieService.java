@@ -12,13 +12,21 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
-    public List<Movie> getList() { return movieRepository.findAll();}
-    public void addMovie(Movie m){ movieRepository.save(m);}
-    public void deleteMovie(Long id){ movieRepository.deleteById(id);}
-    public Movie getMovie(Long id){ return movieRepository.findById(id).orElseThrow();}
-    public void updateMovie(Long id, Movie movie) {
-        getMovie(id).setTitle(movie.getTitle());
-        getMovie(id).setCategory(movie.getCategory());
+    public List<Movie> getList() {
+        return movieRepository.findAll();
     }
-
+    public void addMovie(Movie m){
+        movieRepository.save(m);
+    }
+    public void deleteMovie(Long id){
+        movieRepository.deleteById(id);
+    }
+    public Movie getMovie(Long id){
+        return movieRepository.findById(id).orElseThrow();
+    }
+    public void updateMovie(Long id, Movie movie) {
+        Movie m = movieRepository.findById(id).orElseThrow();
+        m.setTitle(movie.getTitle());
+        m.setCategory(movie.getCategory());
+    }
 }
