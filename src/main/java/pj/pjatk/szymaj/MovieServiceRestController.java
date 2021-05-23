@@ -11,7 +11,11 @@ import java.util.List;
 @RequestMapping("/movies")
 public class MovieServiceRestController {
 
-    MovieService movieService;
+    private final MovieService movieService;
+
+    public MovieServiceRestController(MovieService movieService) {
+        this.movieService = movieService;
+    }
 
     @GetMapping("/exception")
     public RuntimeException throwException(){

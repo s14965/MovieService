@@ -14,6 +14,7 @@ public enum Category {
     SCIFI,
     CYBERPUNK,
     THRILLER,
+    TRAGEDY,
     WESTERN,
     OTHER
 }
