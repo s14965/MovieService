@@ -5,7 +5,7 @@ import java.util.List;
 
 public final class MovieList {
     private static MovieList instance;
-    private List<Movie> movieList = new ArrayList<Movie>();
+    private List<Movie> movieList = new ArrayList<>();
 
     private MovieList(){
 
@@ -21,7 +21,6 @@ public final class MovieList {
         return movieList;
     }
     public void addMovie(Movie m){
-
         movieList.add(m);
     }
     public void deleteMovie(long id){

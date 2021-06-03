@@ -11,11 +11,12 @@ public class Movie {
     private String title;
     @Enumerated(EnumType.STRING)
     private Category category;
+    private boolean isavailable = false;
 
     public Movie(){}
 
-    /*
     public Movie(String n, Category c){
+        id = Long.valueOf(0);
         title = n;
         category = c;
     }
@@ -24,7 +25,7 @@ public class Movie {
         title = n;
         category = c;
     }
-    */
+
     public Long getId() {
         return id;
     }
@@ -42,5 +43,13 @@ public class Movie {
     }
     public  void setCategory(Category c){
         category = c;
+    }
+
+    public boolean isAvailable() {
+        return isavailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isavailable = available;
     }
 }
