@@ -14,7 +14,6 @@ public class Movie {
     private boolean isavailable = false;
 
     public Movie(){}
-
     public Movie(String n, Category c){
         id = Long.valueOf(0);
         title = n;
@@ -44,11 +43,9 @@ public class Movie {
     public  void setCategory(Category c){
         category = c;
     }
-
     public boolean isAvailable() {
         return isavailable;
     }
-
     public void setAvailable(boolean available) {
         isavailable = available;
     }
