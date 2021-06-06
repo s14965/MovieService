@@ -47,4 +47,11 @@ public class MovieService {
             m.setAvailable(true);
         movieRepository.save(m);
     }
+
+    public void rentMovie(Long id) {
+        Movie m = getMovie(id);
+        if (m != null)
+            m.setAvailable(false);
+        movieRepository.save(m);
+    }
 }

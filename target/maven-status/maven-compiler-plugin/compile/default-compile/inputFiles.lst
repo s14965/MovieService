@@ -1,5 +1,7 @@
 D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\MovieServiceApplication.java
-D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\Movie.java
-D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\MovieList.java
-D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\Category.java
+D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\movie\MovieService.java
+D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\movie\Category.java
+D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\movie\MovieRepository.java
+D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\movie\MovieList.java
 D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\MovieServiceRestController.java
+D:\Java Sandbox\MovieService\src\main\java\pj\pjatk\szymaj\movie\Movie.java

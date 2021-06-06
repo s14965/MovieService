@@ -18,7 +18,7 @@ public class MovieServiceRestController {
     }
 
     @GetMapping("/exception")
-    public RuntimeException throwException(){
+    public RuntimeException throwException() {
         return new RuntimeException();
     }
 
@@ -41,14 +41,14 @@ public class MovieServiceRestController {
         try {
             movieService.addMovie(movie);
             return ResponseEntity.ok(movie);
-        } catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Movie> updateMovie(@PathVariable Long id, @RequestBody Movie movie) {
-        if (movieService.getMovie(id)==null)
+        if (movieService.getMovie(id) == null)
             return ResponseEntity.badRequest().build();
         movieService.updateMovie(id, movie);
         return ResponseEntity.ok(movieService.getMovie(id));
@@ -56,15 +56,23 @@ public class MovieServiceRestController {
 
     @PutMapping("makeAvailable/{id}")
     public ResponseEntity<Movie> makeAvailable(@PathVariable Long id) {
-        if (movieService.getMovie(id)==null)
+        if (movieService.getMovie(id) == null)
             return ResponseEntity.badRequest().build();
         movieService.makeAvailable(id);
         return ResponseEntity.ok(movieService.getMovie(id));
     }
 
+    @PutMapping("rentMovie/{id}")
+    public ResponseEntity<Movie> rentMovie(@PathVariable Long id) {
+        if (movieService.getMovie(id) == null)
+            return ResponseEntity.badRequest().build();
+        movieService.rentMovie(id);
+        return ResponseEntity.ok(movieService.getMovie(id));
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
-        if (movieService.getMovie(id)==null)
+        if (movieService.getMovie(id) == null)
             return ResponseEntity.notFound().build();
         movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();

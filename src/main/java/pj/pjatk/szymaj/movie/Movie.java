@@ -1,5 +1,4 @@
 package pj.pjatk.szymaj.movie;
-
 import javax.persistence.*;
 
 @Entity
